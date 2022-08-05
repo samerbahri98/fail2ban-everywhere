@@ -1,0 +1,9 @@
+{
+	"verbose": true,
+	"ignore": ["*.test.js", "fixtures/*", ".git", "node_modules"],
+    "restartable": "rs",
+    "ext": "*",
+    "env":{
+        "FAIL2BAN_EVERYWHERE_SOCK":"/var/run/f2be.sock"
+    }
+}

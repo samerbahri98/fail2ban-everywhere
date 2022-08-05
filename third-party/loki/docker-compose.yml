@@ -1,0 +1,36 @@
+---
+version: '3.7'
+
+services:
+  promtail:
+    image: grafana/promtail:2.5.0
+    container_name: promtail
+    volumes:
+      - /var/log:/var/log
+      - /var/docker/volumes/observability/promtail:/etc/promtail
+      - ./promtail.yml:/etc/promtail/config.yml
+    command: -config.file=/etc/promtail/config.yml
+  loki:
+    image: grafana/loki:2.5.0
+    container_name: loki
+    ports:
+      - 3100:3100
+    volumes:
+      - /var/log:/var/log
+      - ./loki.yml:/etc/loki/local-config.yaml
+    command: -config.file=/etc/loki/local-config.yaml
+    depends_on:
+      - promtail
+  grafana:
+    image: grafana/grafana:9.0.6-ubuntu
+    container_name: grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - loki
+      - promtail
+
+networks:
+  default:
+    external:
+      name: fail2ban-everywhere

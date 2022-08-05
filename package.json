@@ -1,0 +1,26 @@
+{
+  "name": "fail2ban-everywhere",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec make loki-up",
+    "prepare": "husky install",
+    "husky":"husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samerbahri98/fail2ban-everywhere.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samerbahri98/fail2ban-everywhere/issues"
+  },
+  "homepage": "https://github.com/samerbahri98/fail2ban-everywhere#readme",
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "nodemon": "^2.0.19"
+  }
+}
